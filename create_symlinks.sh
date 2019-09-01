@@ -7,5 +7,27 @@ set -o xtrace
 
 SCRIPT_PATH=$(readlink -f "$0")
 SCRIPT_DIR_PATH=$(dirname $SCRIPT_PATH)
-ln -s $SCRIPT_DIR_PATH/.tmux.conf  $HOME/.tmux.conf
+
+FILES=(
+  .tmux.conf
+  .inputrc
+)
+
+for FILE in "${FILES[@]}"
+do
+  FILE_PATH=$SCRIPT_DIR_PATH/$FILE
+  TARGET=$HOME/$FILE
+  if ! ln -s $FILE_PATH $TARGET
+  then
+    echo Skipping $FILE because $TARGET alreasy exists
+    if [[ -L $TARGET ]]
+    then
+       echo $TARGET is a symlink
+    else
+       echo $TARGET is a NOT symlink
+    fi
+  else
+    echo Symlink created at $TARGET
+  fi
+done
 
