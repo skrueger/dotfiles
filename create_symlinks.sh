@@ -12,6 +12,7 @@ FILES=(
   .tmux.conf
   .inputrc
   .bash_profile
+  .vimrc
 )
 
 for FILE in "${FILES[@]}"
