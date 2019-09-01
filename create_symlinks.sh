@@ -11,6 +11,7 @@ SCRIPT_DIR_PATH=$(dirname $SCRIPT_PATH)
 FILES=(
   .tmux.conf
   .inputrc
+  .bash_profile
 )
 
 for FILE in "${FILES[@]}"
