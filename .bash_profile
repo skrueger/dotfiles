@@ -17,5 +17,5 @@ GREEN="\[$(tput setaf 2)\]"
 RESET="\[$(tput sgr0)\]"
 YELLOW="\[$(tput setaf 3)\]"
 BLUE="\[$(tput setaf 4)\]"
-PS1="[${GREEN}\u${RESET}@${YELLOW}\h${RESET} ${BLUE}\W${RESET}]\$\n"
+PS1="[${GREEN}\u${RESET}@${YELLOW}\h${RESET} ${BLUE}\W${RESET}]\n\$ "
 
