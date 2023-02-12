@@ -324,7 +324,6 @@
   :hook (org-mode . efs/org-mode-setup)
   :config
   (add-hook 'org-mode-hook 'turn-on-flyspell)
-  (setq org-ellipsis " ▾")
   (setq org-hide-emphasis-markers t)
 
   (setq org-agenda-start-with-log-mode t)
