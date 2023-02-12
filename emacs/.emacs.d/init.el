@@ -58,13 +58,14 @@
 
 (setq use-package-always-ensure t)
 
+;; use-package information
 ;; :init keyword
 ;; executes code BEFORE a package is loaded.
 ;; It accepts one or more forms, up to the next keyword
 ;;  Since the :init form is always run -- remember to restrict :init code to only what would succeed either way.
 
 ;; :config can be used to execute code AFTER a package is loaded.
-;; In caes where loading is done lazily, this execution is deferred until after the autoload occurs.
+;; In cases where loading is done lazily, this execution is deferred until after the autoload occurs.
 
 ;; :autoload keyword
 ;; ?
