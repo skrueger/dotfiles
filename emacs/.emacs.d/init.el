@@ -316,7 +316,9 @@
 
 (use-package org
   :pin org
-  :bind (("C-c a" . org-agenda))
+  :bind (("C-c a" . org-agenda)
+         ("C-c l" . org-store-link)
+         ("C-c b" . org-switchb))
   :commands (org-capture org-agenda)
   :hook (org-mode . efs/org-mode-setup)
   :config
