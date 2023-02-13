@@ -340,8 +340,16 @@
   (setq org-habit-graph-column 60)
 
   (setq org-todo-keywords
-    '((sequence "TODO(t!)" "NEXT(n!)" "|" "DONE(d!)" "CANCELED(c!)")
-      (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
+    '((sequence "TODO(t!)" "|" "DONE(d!)" )
+      (sequence "SOMEDAY(s)" "WAIT(w@/!)" "|" "CANCELED(c!)")))
+
+(setq org-todo-keyword-faces
+      (quote (("TODO" :foreground "red" :weight bold)
+              ("DONE" :foreground "forest green" :weight bold)
+              ("WAIT" :foreground "orange" :weight bold)
+              ("SOMEDAY" :foreground "cyan" :weight bold)
+              ("CANCELED" :foreground "forest green" :weight bold)
+              )))
 
   (setq org-refile-targets
     '(("archive.org" :maxlevel . 3)
