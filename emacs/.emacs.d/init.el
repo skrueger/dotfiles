@@ -428,30 +428,25 @@
              (org-agenda-files org-agenda-files)))))))
 
   (setq org-capture-templates
-    `(("t" "Tasks / Projects")
-      ("tt" "Task" entry (file+olp "~/org/tasks.org" "Inbox")
-           "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
+    `(("t" "Task" entry (file "~/org/inbox.org")
+           "* TODO %?\n:PROPERTIES:\n:CREATED: %T\n:CAPTURED-AT: %a\n:END:\n%i" :prepend t :empty-lines 1)
 
-      ("j" "Journal Entries")
-      ("jj" "Journal" entry
+      ("j" "Journal" entry
            (file+olp+datetree "~/org/journal.org")
            "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
            ;; ,(dw/read-file-as-string "~/Notes/Templates/Daily.org")
            :clock-in :clock-resume
            :empty-lines 1)
-      ("jm" "Meeting" entry
-           (file+olp+datetree "~/org/journal.org")
-           "* %<%I:%M %p> - MEETING_TITLE :meetings:\n\n%?\n\n%a\n\n"
+      ("m" "Meeting" entry
+           (file "~/org/amazon.org")
+           "* %^{meeting-title} Meeting %<%a %d %b %k:%M %Z> :@amazon:meeting:\n\n%?\n"
+           :prepend t
            :clock-in :clock-resume
            :empty-lines 1)
+      ))
 
-      ("w" "Workflows")
-      ("we" "Checking Email" entry (file+olp+datetree "~/org/journal.org")
-           "* Checking Email :email:\n\n%?" :clock-in :clock-resume :empty-lines 1)
 
-      ("m" "Metrics Capture")
-      ("mw" "Weight" table-line (file+headline "~/org/metrics.org" "Weight")
-       "| %U | %^{Weight} | %^{Notes} |" :kill-buffer t)))
+
 
   (define-key global-map (kbd "C-c j")
     (lambda () (interactive) (org-capture nil "jj")))
