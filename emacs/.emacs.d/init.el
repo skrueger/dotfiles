@@ -345,14 +345,14 @@
     '((sequence "TODO(t!)" "STARTED(g!)" "|" "DONE(d!)" )
       (sequence "SOMEDAY(s)" "WAIT(w@/!)" "|" "CANCELED(c!)")))
 
-(setq org-todo-keyword-faces
-      (quote (("TODO" :foreground "red" :weight bold)
-              ("STARTED" :foreground "magenta" :weight bold)
-              ("DONE" :foreground "forest green" :weight bold)
-              ("WAIT" :foreground "orange" :weight bold)
-              ("SOMEDAY" :foreground "cyan" :weight bold)
-              ("CANCELED" :foreground "forest green" :weight bold)
-              )))
+  (setq org-todo-keyword-faces
+        (quote (("TODO" :foreground "red" :weight bold)
+                ("STARTED" :foreground "magenta" :weight bold)
+                ("DONE" :foreground "forest green" :weight bold)
+                ("WAIT" :foreground "orange" :weight bold)
+                ("SOMEDAY" :foreground "cyan" :weight bold)
+                ("CANCELED" :foreground "forest green" :weight bold)
+                )))
 
   (setq org-refile-targets
     '((nil :maxlevel . 9)
