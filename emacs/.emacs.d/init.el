@@ -354,17 +354,14 @@
     '((:startgroup)
        ; Put mutually exclusive tags here
        (:endgroup)
-       ("@errand" . ?e)
+       ("@amazon" . ?a)
        ("@home" . ?h)
-       ("@work" . ?w)
-       ("1on1" . ?1)
-       ("agenda" . ?a)
-       ("batch" . ?b)
        ("journal" . ?j)
-       ("meetings" . ?m)
+       ("meeting" . ?m)
        ("note" . ?n)
        ("planning" . ?p)
-       ("publish" . ?P)
+       ("thought" . ?t)
+       ("Ilona" . ?I)
        ("idea" . ?i)))
 
   ;; Configure custom agenda views
