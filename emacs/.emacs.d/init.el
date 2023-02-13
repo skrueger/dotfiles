@@ -319,7 +319,8 @@
   :bind (("C-c a" . org-agenda)
          ("<f12>" . org-agenda)
          ("C-c l" . org-store-link)
-         ("C-c b" . org-switchb))
+         ("C-c b" . org-switchb)
+         ("C-c c" . org-capture))
   :commands (org-capture org-agenda)
   :hook (org-mode . efs/org-mode-setup)
   :config
