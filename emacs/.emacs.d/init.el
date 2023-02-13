@@ -448,6 +448,8 @@
 
 
 
+
+  ;; This is key binding to capture journal tasks
   (define-key global-map (kbd "C-c j")
     (lambda () (interactive) (org-capture nil "jj")))
 
