@@ -352,8 +352,15 @@
               )))
 
   (setq org-refile-targets
-    '(("archive.org" :maxlevel . 3)
-      ("tasks.org" :maxlevel . 1)))
+    '((nil :maxlevel . 9)
+      (org-agenda-files :maxlevel . 9)))
+
+  ;; refile to main tree and not as a subtree
+  ;; https://stackoverflow.com/a/25089985
+  (setq org-refile-use-outline-path 'file)
+  (setq org-completion-use-ido t)
+  (setq org-outline-path-complete-in-steps nil)
+  (setq org-reverse-note-order t)
 
   ;; Save Org buffers after refiling!
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
