@@ -433,7 +433,10 @@
 
   (setq org-capture-templates
     `(("t" "Task" entry (file "~/org/inbox.org")
-           "* TODO %?\n:PROPERTIES:\n:CREATED: %T\n:CAPTURED-AT: %a\n:END:\n%i" :prepend t :empty-lines 1)
+       "\n* TODO %?\n:PROPERTIES:\n:CREATED: %T\n:CAPTURED-AT: %a\n:END:\n%i"
+       :clock-in :clock-resume
+       :prepend t :empty-lines 1)
+
 
       ("j" "Journal" entry
            (file+olp+datetree "~/org/journal.org")
