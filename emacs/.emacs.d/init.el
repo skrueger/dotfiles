@@ -463,6 +463,8 @@
   ;;      1    2    3    4    5    6    7    8    9    0
   ;; These are the hotkeys ^^
   (setq org-clock-history-length 21)
+  ;; Save the running clock and all clock history when exiting Emacs, load it on startup
+  (setq org-clock-persist t)
 
 
   ;; This is key binding to capture journal tasks
