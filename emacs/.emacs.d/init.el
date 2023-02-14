@@ -445,8 +445,7 @@
 
       ("j" "Journal" entry
            (file+olp+datetree "~/org/journal.org")
-           "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
-           ;; ,(dw/read-file-as-string "~/Notes/Templates/Daily.org")
+           "\n* %? %<%a %d %b %k:%M %Z>\n\n"
            :clock-in :clock-resume
            :empty-lines 1)
       ("m" "Meeting" entry
