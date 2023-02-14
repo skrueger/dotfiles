@@ -535,7 +535,7 @@
               (("C-c n c" . org-roam-capture)
                ("C-c n f" . org-roam-node-find)
                ("C-c n g" . org-roam-graph)
-               ("C-c n d" . org-id-)
+               ("C-c n d" . org-id-get-create)
                )
       (:map org-roam-mode-map
               (("C-c n c" . org-roam-capture) ; creates a node if it does not exist, and restores the current window configuration upon completion.
