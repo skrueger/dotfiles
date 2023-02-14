@@ -456,8 +456,12 @@
            :empty-lines 1)
       ))
 
-
-
+  ;; global Effort estimate values
+  (setq org-global-properties
+      '(("Effort_ALL" .
+         "0:15 0:30 0:45 1:00 2:00 3:00 4:00 5:00 6:00 0:00")))
+  ;;      1    2    3    4    5    6    7    8    9    0
+  ;; These are the hotkeys ^^
 
 
   ;; This is key binding to capture journal tasks
