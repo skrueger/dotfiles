@@ -343,8 +343,8 @@
   ;; Informative post on different Task State models
   ;; https://www.reddit.com/r/emacs/comments/twlmxy/open_ended_question_what_are_your_orgtodokeywords/
   (setq org-todo-keywords
-    '((sequence "TODO(t!)" "STARTED(g!)" "|" "DONE(d!)" )
-      (sequence "SOMEDAY(s)" "WAIT(w@/!)" "|" "CANCELED(c!)")))
+    '((sequence "TODO(t!)" "STARTED(g@)" "|" "DONE(d@)" )
+      (sequence "SOMEDAY(s)" "WAIT(w@/!)" "|" "CANCELED(c@)")))
 
   (setq org-todo-keyword-faces
         (quote (("TODO" :foreground "red" :weight bold)
