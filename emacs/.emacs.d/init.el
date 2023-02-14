@@ -437,6 +437,11 @@
        :clock-in :clock-resume
        :prepend t :empty-lines 1)
 
+      ("i" "Interview" entry
+           (file+olp+datetree "~/org/interviews.org")
+           "\n* %^{interviewee-name} %<%a %d %b %k:%M %Z> - Interview :interview:\n\n%?\n\n"
+           :clock-in :clock-resume
+           :empty-lines 1)
 
       ("j" "Journal" entry
            (file+olp+datetree "~/org/journal.org")
