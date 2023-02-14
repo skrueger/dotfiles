@@ -48,6 +48,7 @@
   (package-install 'use-package))
 
 ;; https://github.com/jwiegley/use-package
+;; https://jwiegley.github.io/use-package/keywords/
 ;; The use-package macro allows you to isolate package configuration in your .emacs file
 ;; in a way that is both performance-oriented and, well, ti
 ;; NOTE: use-package is not a package manager!
