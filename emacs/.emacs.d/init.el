@@ -450,7 +450,7 @@
            :empty-lines 1)
       ("m" "Meeting" entry
            (file "~/org/amazon.org")
-           "* %^{meeting-title} Meeting %<%a %d %b %k:%M %Z> :@amazon:meeting:\n\n%?\n"
+           "\n* %^{meeting-title} Meeting %<%a %d %b %k:%M %Z> :meeting:\n\n%?\n"
            :prepend t
            :clock-in :clock-resume
            :empty-lines 1)
