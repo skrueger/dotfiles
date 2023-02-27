@@ -382,53 +382,67 @@
        ("ilona" . ?I)
        ("idea" . ?i)))
 
+
+
+(defun zin/org-agenda-skip-tag (tag &optional others)
+  "Skip all entries that correspond to TAG.
+
+If OTHERS is true, skip all entries that do not correspond to TAG."
+  (let ((next-headline (save-excursion (or (outline-next-heading) (point-max))))
+        (current-headline (or (and (org-at-heading-p)
+                                   (point))
+                              (save-excursion (org-back-to-heading)))))
+    (if others
+        (if (not (member tag (org-get-tags-at current-headline)))
+            next-headline
+          nil)
+      (if (member tag (org-get-tags-at current-headline))
+          next-headline
+        nil))))
+  ;; Storing searches
   ;; Configure custom agenda views
+  ;; https://orgmode.org/manual/Storing-searches.html
+  ;; https://orgmode.org/worg/org-tutorials/org-custom-agenda-commands.html
+  ;; https://orgmode.org/worg/org-tutorials/advanced-searching.html
+  ; Key Description Type Search Settings ExportFiles
+
+  (setq org-agenda-span 'day)
   (setq org-agenda-custom-commands
-   '(("d" "Dashboard"
-     ((agenda "" ((org-deadline-warning-days 7)))
-      (todo "NEXT"
-        ((org-agenda-overriding-header "Next Tasks")))
-      (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))))
+        '(("A" "Amazon Agenda"
+           ((agenda "" ((org-agenda-span 'day)))
+            (tags-todo "+amazon+TODO=\"TODO\"+PRIORITY=\"A\"")
+            (tags-todo "+amazon+TODO=\"WAIT\""))
+          )
+        ("d" "Dashboard"
+         ((agenda "" ((org-deadline-warning-days 7)) ("~/org/agenda.html"))
+         (todo "TODO"
+         ((org-agenda-overriding-header "TODO Tasks")))
+         (tags-todo "agenda/TODO" ((org-agenda-overriding-header "Active Projects")))))
 
-    ("n" "Next Tasks"
-     ((todo "NEXT"
-        ((org-agenda-overriding-header "Next Tasks")))))
+    ("p" "Personal TODOs" tags-todo "-amazon+TODO=\"TODO\"")
+    ("i" "Ilona TODO" tags-todo "+ilona+TODO=\"TODO\"")
+    ("I" "Ilona Waiting" tags-todo "+ilona+TODO=\"WAIT\"")
 
-    ("W" "Work Tasks" tags-todo "+work-email")
+    ("z" "Amazon TODOs"
+     (
+      (tags-todo "+amazon+TODO=\"TODO\""
+                 (
+                  (org-agenda-sorting-strategy '(priority-down))
+                  ))))
+    ("H" "Amazon TODOs High Priority"
+     (
+      (tags-todo "+amazon+TODO=\"TODO\"+PRIORITY=\"A\""
+                 )))
+
+    ("w" "Amazon Waiting" tags-todo "+amazon+TODO=\"WAIT\"")
 
     ;; Low-effort next actions
     ("e" tags-todo "+TODO=\"NEXT\"+Effort<15&+Effort>0"
      ((org-agenda-overriding-header "Low Effort Tasks")
       (org-agenda-max-todos 20)
       (org-agenda-files org-agenda-files)))
+    ))
 
-    ("w" "Workflow Status"
-     ((todo "WAIT"
-            ((org-agenda-overriding-header "Waiting on External")
-             (org-agenda-files org-agenda-files)))
-      (todo "REVIEW"
-            ((org-agenda-overriding-header "In Review")
-             (org-agenda-files org-agenda-files)))
-      (todo "PLAN"
-            ((org-agenda-overriding-header "In Planning")
-             (org-agenda-todo-list-sublevels nil)
-             (org-agenda-files org-agenda-files)))
-      (todo "BACKLOG"
-            ((org-agenda-overriding-header "Project Backlog")
-             (org-agenda-todo-list-sublevels nil)
-             (org-agenda-files org-agenda-files)))
-      (todo "READY"
-            ((org-agenda-overriding-header "Ready for Work")
-             (org-agenda-files org-agenda-files)))
-      (todo "ACTIVE"
-            ((org-agenda-overriding-header "Active Projects")
-             (org-agenda-files org-agenda-files)))
-      (todo "COMPLETED"
-            ((org-agenda-overriding-header "Completed Projects")
-             (org-agenda-files org-agenda-files)))
-      (todo "CANC"
-            ((org-agenda-overriding-header "Cancelled Projects")
-             (org-agenda-files org-agenda-files)))))))
 
   (setq org-capture-templates
     `(("t" "Task" entry (file "~/org/inbox.org")
