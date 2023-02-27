@@ -373,14 +373,13 @@
     '((:startgroup)
        ; Put mutually exclusive tags here
        (:endgroup)
-       ("@amazon" . ?a)
-       ("@home" . ?h)
+       ("amazon" . ?a)
        ("journal" . ?j)
        ("meeting" . ?m)
        ("note" . ?n)
        ("planning" . ?p)
        ("thought" . ?t)
-       ("Ilona" . ?I)
+       ("ilona" . ?I)
        ("idea" . ?i)))
 
   ;; Configure custom agenda views
