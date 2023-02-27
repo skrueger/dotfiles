@@ -898,3 +898,7 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
 (setq custom-file "~/.emacs.d/emacs-custom.el")
 (if (file-exists-p custom-file)
     (load custom-file))
+
+(find-file "~/org/tasks.org")
+(org-agenda nil "a")
+
