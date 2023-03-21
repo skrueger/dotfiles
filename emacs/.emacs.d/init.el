@@ -506,6 +506,11 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
   (define-key global-map (kbd "C-c j")
     (lambda () (interactive) (org-capture nil "jj")))
 
+  ;; Always hilight the current agenda line
+  (add-hook 'org-agenda-mode-hook
+          '(lambda () (hl-line-mode 1))
+          'append)
+
   (efs/org-font-setup)
   ; https://emacs.stackexchange.com/a/41314
   (defun my/org-read-datetree-date (d)
