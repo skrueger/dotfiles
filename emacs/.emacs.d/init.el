@@ -929,6 +929,16 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
 (find-file "~/org/tasks.org")
 (org-agenda nil "a")
 
+(org-babel-do-load-languages
+ (quote org-babel-load-languages)
+ (quote (
+         (emacs-lisp . t)
+         (org . t)
+         (plantuml . t)
+         (python . t)
+         )))
+(setq org-plantuml-jar-path "/home/ANT.AMAZON.COM/krusimon/lib/java/plantuml.jar")
+
 (windmove-default-keybindings) ;; Shift+direction
 ;; ctrl has the issue where Ctl+direction moves on words
 ;; (windmove-default-keybindings 'ctrl) ;; C+direction
