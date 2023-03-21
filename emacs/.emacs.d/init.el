@@ -400,6 +400,10 @@
        ("work" . ?w)
        ("ilona" . ?i)))
 
+  ;; C-c l creates a new PROPERTIES id if it doesn't exist
+  ;; This allows headings to move around without breaking the link
+  (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
+
 
 
 (defun zin/org-agenda-skip-tag (tag &optional others)
