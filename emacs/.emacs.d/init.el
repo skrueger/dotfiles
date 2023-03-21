@@ -531,7 +531,7 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
     (setq this-command 'my/org-refile-to-journal)))
 
 (defun efs/org-mode-visual-fill ()
-  (setq visual-fill-column-width 100
+  (setq visual-fill-column-width 120
         visual-fill-column-center-text t)
   (visual-fill-column-mode 1))
 
