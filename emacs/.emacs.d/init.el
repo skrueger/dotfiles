@@ -929,3 +929,11 @@ If OTHERS is true, skip all entries that do not correspond to TAG."
 (find-file "~/org/tasks.org")
 (org-agenda nil "a")
 
+(windmove-default-keybindings) ;; Shift+direction
+;; ctrl has the issue where Ctl+direction moves on words
+;; (windmove-default-keybindings 'ctrl) ;; C+direction
+;; Make windmove work in Org mode:
+;; (add-hook 'org-shiftup-final-hook 'windmove-up)
+;; (add-hook 'org-shiftleft-final-hook 'windmove-left)
+;; (add-hook 'org-shiftdown-final-hook 'windmove-down)
+;; (add-hook 'org-shiftright-final-hook 'windmove-right)
