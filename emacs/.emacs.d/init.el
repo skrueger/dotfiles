@@ -327,7 +327,7 @@
   :config
   (add-hook 'org-mode-hook 'turn-on-flyspell)
   ;; org-hide-emphasis-markers when non-nil **bold** displays as BOLD
-  (setq org-hide-emphasis-markers nil)
+  (setq org-hide-emphasis-markers t)
 
   (setq org-agenda-start-with-log-mode t)
   (setq org-log-done 'time)
