@@ -1,0 +1,7 @@
+[user]
+	email = simonpkrueger@gmail.com
+	name = Simon Krueger
+[core]
+	excludesFile = ~/.gitignore
+[merge]
+	conflictstyle = diff3
