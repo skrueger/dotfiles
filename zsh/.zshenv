@@ -9,3 +9,8 @@ TERM=xterm-256color
 # https://zsh.sourceforge.io/Guide/zshguide02.html#l24
 typeset -U path PATH
 path=(~/.local/bin $path)
+
+# fzf - fuzzy finder
+# I use --layout=reverse to keep what I type close to the command prompt.
+# I find this more pleasant.
+FZF_DEFAULT_OPTS='--layout=reverse'
