@@ -99,6 +99,7 @@
   ;; The :hook keyword adds functions onto hooks.
   ;; I add hooks to shell-mode-hook and term-mode-hook that disables display-line-numbers-mode.
   :hook ((shell-mode term-mode) . (lambda () (display-line-numbers-mode 0)))
+  :demand t
   :config
   ;; global-display-line-numbers-mode t enables display-line-numbers-mode in all buffers.
   (global-display-line-numbers-mode t))
@@ -179,10 +180,13 @@
   ;; I prefer windmove keybindings over this functionality.
   ;; I can use C-c t and C-c , for changing a task's state and priority.
   :hook
-  (org-shiftup . windmove-up)
-  (org-shiftleft . windmove-left)
-  (org-shiftright . windmove-right)
-  (org-shiftdown . windmove-down)
+  ((org-shiftup . windmove-up)
+   (org-shiftleft . windmove-left)
+   (org-shiftright . windmove-right)
+   (org-shiftdown . windmove-down))
+  ;; I set demand t so this package is always loaded.
+  ;; use-package defers loading when there are hooks.
+  :demand t
   :config
   ;; windmove-default-keybindings adds keybindings Shift + Arrows for selecting windows.
   (windmove-default-keybindings))
