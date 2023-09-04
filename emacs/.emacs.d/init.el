@@ -1,11 +1,11 @@
 ;;; init.el --- Simon Krueger's Emacs Initialization file. -*- mode: elisp -*-
 
-;;; Commentary
+;;; Commentary:
 
 ;; I want this file to be maintainable and portable.
 ;; Literate programming is a good idea.
 ;; Less is more.
-;; Simple. Not complex.
+;; Simple.  Not complex.
 
 ;; I tested this configuration on:
 ;; - GNU Emacs 29.1 with Arch Linux.
@@ -13,13 +13,16 @@
 ;; - GNU Emacs 27.1 with Ubuntu 22.04.
 
 ;; I cannot get GNU Emacs 26.3 on Ubuntu 20.04 to work correctly
-;; with evil mode in the terminal. The escape key won't go into normal mode.
+;; with evil mode in the terminal.  The escape key won't go into normal mode.
 ;; I binded ESC to evil-normal-mode, but there was still strange behavior.
 ;; It does work in graphical mode though.
 
 ;; gc-cons-threshold is the number of bytes of consing between garbage collections.
 ;; It is a variable define din Emacs C source code.
 ;; The default is 800 kilobytes.  I set it to 64 MB.
+
+;;; Code:
+
 (setq gc-cons-threshold (* 64 1024 1024))
 
 ;; visible-bell t flashes the frame to represent a bell.
