@@ -1,7 +1,14 @@
 # $ZDOTDIR/.zshrc
 # Used for setting user's interactive shell configuration and executing commands, will be read when starting as an interactive shell.
 
-# Use the zsh config provided by https://grml.org/zsh/
+# I use Grml's zsh configuration (grmlzshrc https://grml.org/zsh/).
+# Grml is a bootable live system based on Debian used for system administration and rescue.
+# Its name is derived from the "grr" sound  people use when expressing dissatisfaction.
+# Grml provides an extensive zsh configuration that's usable in other Linux distributions.
+# The grml zshrc file can be downloaded with `wget -O .zshrc https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc`.
+# On Arch Linux it can be installed with the official `grml-zsh-config` package.
+# Grml and Arch Linux places the file in the global zshrc (/etc/zsh/zshrc).
+# See `man grmlzshrc` for more information or its reference card (https://grml.org/zsh/grml-zsh-refcard.pdf).
 
 # vi keybindings
 bindkey -v
