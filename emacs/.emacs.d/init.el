@@ -18,6 +18,11 @@
 ;; This variable is defined in emacs C source code.
 (setq visible-bell t)
 
+;; indent-tabs-mode nil indents with spaces.
+;; Emacs 28 has an indent-tabs-mode function defined in simple.el.
+;; I set the variable so this works in Emacs 27 on Ubuntu 22.04.
+(setq-default indent-tabs-mode nil)
+
 ;; After startup, I message the initialization time and number of garbage collections.
 ;; emacs-startup-hook is a built-in inside of startup.el.
 ;; startup.el is not a package that can be loaded by use-package.
@@ -83,9 +88,7 @@
   :config
   ;; column-number-mode 1 enables Column Number mode, which
   ;; displays the column number in the mode line.
-  (column-number-mode 1)
-  ;; indent-tabs-mode nil turns off the minor mode that inserts tab characters for indentation.
-  (indent-tabs-mode nil))
+  (column-number-mode 1))
 
 
 ;; display-line-numbers is a minor mode interface for displaying line numbers.
