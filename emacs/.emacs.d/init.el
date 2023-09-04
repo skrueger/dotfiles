@@ -7,7 +7,9 @@
 ;; Less is more.
 ;; Simple. Not complex.
 
-;; I tested this configuration on GNU Emacs 28.2 with Ubuntu 20.04.
+;; I tested this configuration on:
+;; - GNU Emacs 28.2 with Ubuntu 20.04.
+;; - GNU Emacs 27.1 with Ubuntu 22.04.
 
 ;; gc-cons-threshold is the number of bytes of consing between garbage collections.
 ;; It is a variable define din Emacs C source code.
@@ -176,6 +178,11 @@
   ;; S-UP and S-DOWN change a task's priority.
   ;; I prefer windmove keybindings over this functionality.
   ;; I can use C-c t and C-c , for changing a task's state and priority.
+  :hook
+  (org-shiftup . windmove-up)
+  (org-shiftleft . windmove-left)
+  (org-shiftright . windmove-right)
+  (org-shiftdown . windmove-down)
   :config
   ;; windmove-default-keybindings adds keybindings Shift + Arrows for selecting windows.
   (windmove-default-keybindings))
