@@ -12,6 +12,11 @@
 ;; - GNU Emacs 28.2 with Ubuntu 20.04.
 ;; - GNU Emacs 27.1 with Ubuntu 22.04.
 
+;; I cannot get GNU Emacs 26.3 on Ubuntu 20.04 to work correctly
+;; with evil mode in the terminal. The escape key won't go into normal mode.
+;; I binded ESC to evil-normal-mode, but there was still strange behavior.
+;; It does work in graphical mode though.
+
 ;; gc-cons-threshold is the number of bytes of consing between garbage collections.
 ;; It is a variable define din Emacs C source code.
 ;; The default is 800 kilobytes.  I set it to 64 MB.
