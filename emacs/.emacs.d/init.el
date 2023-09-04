@@ -8,6 +8,7 @@
 ;; Simple. Not complex.
 
 ;; I tested this configuration on:
+;; - GNU Emacs 29.1 with Arch Linux.
 ;; - GNU Emacs 28.2 with Ubuntu 20.04.
 ;; - GNU Emacs 27.1 with Ubuntu 22.04.
 
@@ -114,6 +115,7 @@
   (setq delete-by-moving-to-trash t))
 
 ;; flyspell is built-in package that that performs on-the-fly spell checking.
+;; Arch Linux needs aspell and aspell-en for this to work.
 (use-package flyspell
   :diminish flyspell-mode
   :hook (((text-mode org-mode) . turn-on-flyspell)
