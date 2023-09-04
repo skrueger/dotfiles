@@ -29,11 +29,11 @@
 ;; emacs-startup-hook is a built-in inside of startup.el.
 ;; startup.el is not a package that can be loaded by use-package.
 (add-hook 'emacs-startup-hook
-	  (lambda ()
-	    (let ((init-duration-time (time-subtract after-init-time before-init-time)))
-	      (message "Emacs initialized in %s with %d garbage collections."
-		       (format "%.2f seconds" (float-time init-duration-time))
-		       gcs-done))))
+          (lambda ()
+            (let ((init-duration-time (time-subtract after-init-time before-init-time)))
+              (message "Emacs initialized in %s with %d garbage collections."
+                       (format "%.2f seconds" (float-time init-duration-time))
+                       gcs-done))))
 
 ;; package.el is a package manager that is built into GNU Emacs since version 24.
 ;; require is a built-in function that loads a Lisp file if it has not already been loaded.
@@ -59,9 +59,9 @@
 ;;
 ;; I only add repoistories that I trust because packages run arbitraty code.
 (add-to-list 'package-archives
-	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/") t)
+             '("melpa" . "https://melpa.org/packages/") t)
 
 ;; package-initialize loads installed packages and activates them.
 (package-initialize)
@@ -117,15 +117,15 @@
 (use-package flyspell
   :diminish flyspell-mode
   :hook (((text-mode org-mode) . turn-on-flyspell)
-	 (prog-mode . flyspell-prog-mode)))
+         (prog-mode . flyspell-prog-mode)))
 
 ;; org is a built-in package that is for keeping notes,
 ;; maining ToDo lists, and doing project planning with a fast and effective plain-text system.
 (use-package org
   :bind (("C-c a" . org-agenda)
-	 ("C-c l" . org-store-link)
-	 ("C-c b" . org-switchb)
-	 ("C-c c" . org-capture))
+         ("C-c l" . org-store-link)
+         ("C-c b" . org-switchb)
+         ("C-c c" . org-capture))
   :init
   ;; org-agenda-span controls the number of days to include in the agenda overview display.
   (setq org-agenda-span 'day)
@@ -143,15 +143,15 @@
   (setq org-plantuml-jar-path "~/.lib/plantuml.jar")
   ;; org-indent-mode indents text according to the outline structure.
   :hook ((org-mode . (lambda () (org-indent-mode 1)))
-	 (org-agenda-mode . (lambda () (hl-line-mode 1))))
+         (org-agenda-mode . (lambda () (hl-line-mode 1))))
   :config
   ;; This updates org-refile to save all buffers after it runs.
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
   (org-babel-do-load-languages
       'org-babel-load-languages
       '((emacs-lisp . t)
-	(plantuml . t)
-	(python . t))))
+        (plantuml . t)
+        (python . t))))
 
 ;; org-habit tracks habits in the agenda view.
 ;; It is built in to emacs but it must be loaded.
