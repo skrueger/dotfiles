@@ -208,6 +208,13 @@
   :config
   (winner-mode 1))
 
+;; ansi-color is a built-in package that handles ANSI escape sequences.
+;; I need this package for output of rust-compile.
+;; https://stackoverflow.com/questions/13397737/ansi-coloring-in-compilation-mode
+(use-package ansi-color
+  ;; ansi-color-compilation-filter was added in Emacs 28.1.
+  :hook (compilation-filter . ansi-color-compilation-filter))
+
 ;; Evil is an extensible vi layer for Emacs.
 ;; It emulates the main features of Vim, and provides facilities for writing custom extensions.
 ;; Its official documentation is located at https://evil.readthedocs.io/en/latest/overview.html.
@@ -378,6 +385,47 @@
 ;; use-package supports it with the diminish keyword.
 (use-package diminish
   :ensure t)
+
+;; rust-mode provides syntax highlighting and integration with cargo commands.
+;; - C-c C-c C-u for rust-compile
+;; - C-c C-c C-k for rust-check
+;; - C-c C-c C-t for rust-test
+;; - C-c C-c C-r for rust-run
+;; - C-c C-c C-l for rust-run-clippy
+;; - C-c C-f for rust-format-buffer
+;; - C-c C-d to wrap a region in dbg!
+(use-package rust-mode
+  :ensure t)
+
+;; tree-sitter provides a buffer-local syntax tree that is kept up-to-date with changes to the buffer.
+;; It is used for syntax highlighting and tree queries.
+;; See https://emacs-tree-sitter.github.io/getting-started/
+(use-package tree-sitter
+  :ensure t
+  :hook
+  (tree-sitter-after-on . tree-sitter-hl-mode)
+  :config
+  (global-tree-sitter-mode))
+
+;; tree-sitter-langs adds support for various languages.
+;; The full list is in https://github.com/emacs-tree-sitter/tree-sitter-langs/tree/master/repos
+(use-package tree-sitter-langs
+  :ensure t)
+
+;; lsp-mode is a language server protocol client.
+;; I navigate code with it in rust-mode (Ctl + [ to jump to implementation).
+;; Do not automatically enable it because it starts rust-analyzer
+;; and that can take a while.
+;; Instead I start it by calling `lsp`.
+(use-package lsp-mode
+  :ensure t
+  :init
+  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+  (setq lsp-keymap-prefix "C-c l")
+
+  ;; if you want which-key integration
+  :hook ((lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
 
 ;; custom-file is used for storing customization information.
 ;; customize-set-variables and customize-set-faces are examples of customizations.
