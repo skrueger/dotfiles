@@ -32,5 +32,4 @@ xsource /usr/share/nvm/init-nvm.sh
 #
 # fzf is installed on Arch Linux with the fzf package.
 # fzf is enabled in zsh by sourcing its keybindings and completion.
-xsource /usr/share/fzf/key-bindings.zsh
-xsource /usr/share/fzf/completion.zsh
+xsource /usr/share/fzf/{key-bindings,completion}.zsh
