@@ -430,6 +430,11 @@
   :hook ((lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
 
+;; treemacs provides a tree layout file explorer.
+;; See https://github.com/Alexander-Miller/treemacs.
+(use-package treemacs
+  :ensure t)
+
 ;; custom-file is used for storing customization information.
 ;; customize-set-variables and customize-set-faces are examples of customizations.
 ;; By default it is nil, which means it stores the values in the init file.
