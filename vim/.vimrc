@@ -51,4 +51,6 @@ let g:syntastic_check_on_wq = 0
 set t_Co=256   " This is may or may not needed.
 
 set background=light
-colorscheme PaperColor
+if !empty(glob("~/.vim/colors/PaperColor.vim"))
+  colorscheme PaperColor
+endif
