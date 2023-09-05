@@ -15,7 +15,13 @@ bindkey -v
 
 # xsource is a function defined in grmlzshrc that `source`s a file if it's readable.
 # It is a terse way to source files.
+
+# Add rust toolchain (rustc, cargo, rustup, etc) to the PATH.
 xsource "$HOME/.cargo/env"
+
+# Setup Node Version Manager (NVM).
+# Add it to PATH and setup completions.
+# Arch Linux has an nvm AUR package (https://aur.archlinux.org/packages/nvm).
 xsource /usr/share/nvm/init-nvm.sh
 
 # fzf, the general-purpose command-line fuzzy finder.
