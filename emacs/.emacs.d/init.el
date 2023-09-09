@@ -427,20 +427,15 @@
 (use-package tree-sitter-langs
   :ensure t)
 
-;; lsp-mode is a language server protocol client.
-;; I navigate code with it in rust-mode (Ctl + [ to jump to implementation).
-;; Do not automatically enable it because it starts rust-analyzer
-;; and that can take a while.
-;; Instead I start it by calling `lsp`.
-(use-package lsp-mode
-  :ensure t
-  :init
-  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
-  (setq lsp-keymap-prefix "C-c l")
-
-  ;; if you want which-key integration
-  :hook ((lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp)
+;; eglot is Emacs Polyglot. It is the Emacs LSP client that stays out of your way.
+;; Load it with 'eglot'.
+;; It is package with Emacs 29.
+;; I am trying this over the alternative lsp-mode package because I've heard eglot
+;; does things the Emacs way.
+;; I do not automatically load eglot because it takes time to load large projects
+;; and I don't want to wait when I only want to quickly edit or view or a single file.
+(use-package eglot
+  :ensure t)
 
 ;; treemacs provides a tree layout file explorer.
 ;; See https://github.com/Alexander-Miller/treemacs.
