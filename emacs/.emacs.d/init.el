@@ -239,6 +239,18 @@
   ;; evil-collection requires evil-want-keybinding is nil.
   (setq evil-want-keybinding nil)
 
+  ;; 'evil-want-C-i-jump' 'nil' makes 'org-cycle' (TAB) work inside a terminal
+  ;; at the cost of 'evil-jump-forward' (C-i).
+  ;; The terminal sees TAB and C-i as the same input (ASCII value 9).
+  ;; The TAB ('org-cycle') is removed when evil loads because it defines C-i to 'evil-jump-forward'.
+  ;; 'org-cycle' (TAB) remains by disabling the 'evil-jump-forward' with 'evil-want-C-i-jump' set to  'nil'.
+  ;;
+  ;; 'evil-want-C-i-jump' must be set before evil loads.
+  ;; For more info see https://jeffkreeftmeijer.com/emacs-evil-org-tab/
+  ;;
+  ;; I leave 'evil-want-C-i-jump' as 't' to keep jump behavior, but leave the documentation above.
+  (setq evil-want-C-i-jump t)
+
   ;; The :config keyword executes code after a package is loaded.
   :config
   ;; evil-mode 1 enables evil-local mode in all buffers.
