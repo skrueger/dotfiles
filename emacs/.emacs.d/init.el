@@ -239,16 +239,22 @@
   ;; evil-collection requires evil-want-keybinding is nil.
   (setq evil-want-keybinding nil)
 
-  ;; 'evil-want-C-i-jump' 'nil' makes 'org-cycle' (TAB) work inside a terminal
-  ;; at the cost of 'evil-jump-forward' (C-i).
-  ;; The terminal sees TAB and C-i as the same input (ASCII value 9).
-  ;; The TAB ('org-cycle') is removed when evil loads because it defines C-i to 'evil-jump-forward'.
-  ;; 'org-cycle' (TAB) remains by disabling the 'evil-jump-forward' with 'evil-want-C-i-jump' set to  'nil'.
+  ;; I set 'evil-want-C-i-jump' to 't' so that
+  ;; 'C-i'/'TAB' is bound to 'evil-jump-forward' and not 'org-cycle'.
   ;;
-  ;; 'evil-want-C-i-jump' must be set before evil loads.
-  ;; For more info see https://jeffkreeftmeijer.com/emacs-evil-org-tab/
+  ;; 'evil-want-C-i-jump' exists because of how the Tab key is treated in Emacs.
+  ;; The Tab key is represented by 'TAB', when Emacs runs in a terminal.
+  ;; The Tab key is represented by '<tab>' and 'C-i' represents 'TAB' [0] when Emacs runs in a GUI.
   ;;
-  ;; I leave 'evil-want-C-i-jump' as 't' to keep jump behavior, but leave the documentation above.
+  ;; Everything works fine in GUI mode, because '<tab>' is bound to 'org-cycle' and 'C-i' is bound to 'evil-jump-forward'.
+  ;; However, things break in the terminal.
+  ;; In the terminal, '<tab>' is not available and 'TAB' cannot be used for both 'evil-jump-forward' and 'org-cycle'.
+  ;; I must choose if 'TAB' binds to 'evil-jump-forward' or 'org-cycle'.
+  ;;
+  ;; For more info about 'evil-want-C-i-jump' see https://jeffkreeftmeijer.com/emacs-evil-org-tab/.
+  ;;
+  ;; [0]: In a terminal 'C-i' and 'TAB' both represent the ASCII value 9. 9 comes from the control key which clears the 7th and 6th bits of i (0110 1001).
+  ;; [1]: 'org-cycle' cycles the visibility of headings.
   (setq evil-want-C-i-jump t)
 
   ;; The :config keyword executes code after a package is loaded.
