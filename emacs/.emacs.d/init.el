@@ -155,6 +155,10 @@
   :init
   ;; org-agenda-span controls the number of days to include in the agenda overview display.
   (setq org-agenda-span 'day)
+  (setq org-todo-keywords
+    '((sequence "TODO(t!)" "DONE(d!)")
+      (sequence "WAIT(w!)" "CANCELED(c!)")))
+
   ;; org-log-time 'time records the time when a task moves to the DONE state.
   (setq org-log-done 'time)
   ;; org-log-into-drawer t inserts state change notes and time stamps into the LOGBOOK drawer.
