@@ -100,6 +100,11 @@
 ;; whenever the corresponding files have been changed on disk and the
 ;; buffer contains no unsaved changes.
 (use-package autorevert
+  :init
+  ;; 'global-auto-revert-non-file-buffers' set to 't' will
+  ;; auto revert buffers that list files.
+  ;; This will automatically revert Dired buffers when a file is added or removed.
+  (setq global-auto-revert-non-file-buffers t)
   :config
   (global-auto-revert-mode 1))
 
