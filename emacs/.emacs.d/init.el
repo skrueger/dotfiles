@@ -34,6 +34,17 @@
 ;; I set the variable so this works in Emacs 27 on Ubuntu 22.04.
 (setq-default indent-tabs-mode nil)
 
+;; 'mode-line-buffer-identification' controls
+;; what Mode Line displays to identify the current buffer.
+;; By default it will show the buffer's name (e.g., init.el).
+;; I change it to display the buffer's file path (e.g., /home/simon/.emacs.d/init.el).
+;; I like seeing the full file path, so I know the buffer's location.
+;; For more information, see the GNU Mode Line Format documentation at https://www.gnu.org/software/emacs/manual/html_node/elisp/Mode-Line-Format.html
+(setq-default mode-line-buffer-identification
+              (list 'buffer-file-name
+                    (propertized-buffer-identification "%12f")
+                    (propertized-buffer-identification "%12b")))
+
 ;; After startup, I message the initialization time and number of garbage collections.
 ;; emacs-startup-hook is a built-in inside of startup.el.
 ;; startup.el is not a package that can be loaded by use-package.
