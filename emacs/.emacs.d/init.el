@@ -193,6 +193,11 @@
   (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
   (add-to-list 'org-structure-template-alist '("py" . "src python")))
 
+;; savehist saves the minibuffer history.
+(use-package savehist
+  :config
+  (savehist-mode 1))
+
 ;; windmove is a built-in package for selecting windows.
 (use-package windmove
   ;; windmove keybindings conflicts with org.
