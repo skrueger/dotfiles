@@ -153,12 +153,11 @@
          ("C-c b" . org-switchb)
          ("C-c c" . org-capture))
   :init
-  ;; org-agenda-span controls the number of days to include in the agenda overview display.
-  (setq org-agenda-span 'day)
   (setq org-todo-keywords
     '((sequence "TODO(t!)" "DONE(d!)")
       (sequence "WAIT(w!)" "CANCELED(c!)")))
 
+  (setq org-agenda-files '("~/org/"))
   ;; org-log-time 'time records the time when a task moves to the DONE state.
   (setq org-log-done 'time)
   ;; org-log-into-drawer t inserts state change notes and time stamps into the LOGBOOK drawer.
@@ -180,6 +179,15 @@
       '((emacs-lisp . t)
         (plantuml . t)
         (python . t))))
+
+(use-package org-agenda
+  :after org
+  :init
+  ;; org-agenda-span controls the number of days to include in the agenda overview display.
+  (setq org-agenda-span 'day)
+
+  (setq org-agenda-skip-deadline-if-done t)
+  (setq org-agenda-skip-scheduled-if-done t))
 
 ;; org-habit tracks habits in the agenda view.
 ;; It is built in to emacs but it must be loaded.
