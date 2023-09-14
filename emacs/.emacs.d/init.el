@@ -198,6 +198,12 @@
   :config
   (savehist-mode 1))
 
+;; saveplace saves my place.
+;; My place is restored when I revisit a file.
+(use-package saveplace
+  :config
+  (save-place-mode 1))
+
 ;; windmove is a built-in package for selecting windows.
 (use-package windmove
   ;; windmove keybindings conflicts with org.
