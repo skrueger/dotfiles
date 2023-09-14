@@ -433,13 +433,18 @@
 (use-package tree-sitter-langs
   :ensure t)
 
-;; eglot is Emacs Polyglot. It is the Emacs LSP client that stays out of your way.
-;; Load it with 'eglot'.
-;; It is package with Emacs 29.
+;; eglot is Emacs Polyglot --
+;; an Emacs language server protocol (LSP) client that stays out of your way.
+;;
+;; Eglot allows me to navigate code in rust-mode (Ctl + [ to jump to implementation).
+;; It can even navigate to the standard library or third party crates.
+;;
 ;; I am trying this over the alternative lsp-mode package because I've heard eglot
-;; does things the Emacs way.
-;; I do not automatically load eglot because it takes time to load large projects
-;; and I don't want to wait when I only want to quickly edit or view or a single file.
+;; does things the "Emacs way" and it is built-in as of Emacs 29.
+;;
+;; I do not automatically load eglot because of its loading time.
+;; Its loading time is a drag when I haven't loaded the project yet and I only want to quickly edit or view or a single file.
+;; Instead I manually load it by running 'eglot'.
 (use-package eglot
   :ensure t)
 
