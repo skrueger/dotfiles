@@ -171,8 +171,6 @@
   :hook ((org-mode . (lambda () (org-indent-mode 1)))
          (org-agenda-mode . (lambda () (hl-line-mode 1))))
   :config
-  ;; This updates org-refile to save all buffers after it runs.
-  (advice-add 'org-refile :after 'org-save-all-org-buffers)
   (org-babel-do-load-languages
       'org-babel-load-languages
       '((emacs-lisp . t)
@@ -187,6 +185,18 @@
   (setq org-habit-graph-column 60)
   :config
   (add-to-list 'org-modules 'org-habit))
+
+(use-package org-refile
+  :after org
+  :init
+  (setq org-refile-use-outline-path 'file)
+  (setq org-refile-targets
+    '((nil :maxlevel . 9)
+      (org-agenda-files :maxlevel . 9)))
+  (setq org-outline-path-complete-in-steps nil)
+  :config
+  ;; This updates org-refile to save all buffers after it runs.
+  (advice-add 'org-refile :after 'org-save-all-org-buffers))
 
 ;; org-tempo expands the snippet structures and allows < s TAB to create a code block.
 ;; org-tempo is built into org, but it must be loaded.
