@@ -38,3 +38,17 @@ xsource "$HOME/.nvm/nvm.sh"
 xsource /usr/share/fzf/{key-bindings,completion}.zsh
 # Ubuntu 22.04 places them here
 xsource /usr/share/doc/fzf/examples/{key-bindings,completion}.zsh
+
+# cdr changes the working directory to a previous working directory.
+#
+# Run `cdr<TAB>` to get a list of recent directories to switch to.
+#
+# cdr is a user defined function that is bundled with the zsh source code.
+#
+# For more information see:
+# - https://github.com/zsh-users/zsh/blob/master/Functions/Chpwd/cdr
+# - https://zsh.sourceforge.io/Doc/Release/User-Contributions.html
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':completion:*:*:cdr:*:*' menu selection
+
