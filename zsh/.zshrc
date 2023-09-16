@@ -19,10 +19,13 @@ bindkey -v
 # Add rust toolchain (rustc, cargo, rustup, etc) to the PATH.
 xsource "$HOME/.cargo/env"
 
-# Setup Node Version Manager (NVM).
+# Node Version Manager (NVM).
+#
 # Add it to PATH and setup completions.
 # Arch Linux has an nvm AUR package (https://aur.archlinux.org/packages/nvm).
 xsource /usr/share/nvm/init-nvm.sh
+# The source code manual install location.
+xsource "$HOME/.nvm/nvm.sh"
 
 # fzf, the general-purpose command-line fuzzy finder.
 # fzf provides the following keybindings:
