@@ -36,3 +36,5 @@ xsource "$HOME/.nvm/nvm.sh"
 # fzf is installed on Arch Linux with the fzf package.
 # fzf is enabled in zsh by sourcing its keybindings and completion.
 xsource /usr/share/fzf/{key-bindings,completion}.zsh
+# Ubuntu 22.04 places them here
+xsource /usr/share/doc/fzf/examples/{key-bindings,completion}.zsh
