@@ -17,13 +17,14 @@
 ;; I binded ESC to evil-normal-mode, but there was still strange behavior.
 ;; It does work in graphical mode though.
 
+;;; Code:
+
 ;; gc-cons-threshold is the number of bytes of consing between garbage collections.
 ;; It is a variable define din Emacs C source code.
 ;; The default is 800 kilobytes.  I set it to 64 MB.
-
-;;; Code:
-
 (setq gc-cons-threshold (* 64 1024 1024))
+
+(setq tab-width 4)
 
 ;; visible-bell t flashes the frame to represent a bell.
 ;; This variable is defined in emacs C source code.
