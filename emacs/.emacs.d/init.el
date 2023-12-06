@@ -190,7 +190,11 @@
   (setq org-agenda-span 'day)
 
   (setq org-agenda-skip-deadline-if-done t)
-  (setq org-agenda-skip-scheduled-if-done t))
+  (setq org-agenda-skip-scheduled-if-done t)
+  ;; `org-agenda-start-with-log-mode` starts the agenda view with org-agenda-log-mode enabled.
+  ;; `org-agenda-log-mode` logs clocked events in the agenda view.
+  ;; It can be toggled with the default keybinding `l`.
+  (setq org-agenda-start-with-log-mode t))
 
 ;; org-habit tracks habits in the agenda view.
 ;; It is built in to emacs but it must be loaded.
