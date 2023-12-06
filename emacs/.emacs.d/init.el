@@ -124,7 +124,7 @@
 (use-package display-line-numbers
   ;; The :hook keyword adds functions onto hooks.
   ;; I add hooks to shell-mode-hook and term-mode-hook that disables display-line-numbers-mode.
-  :hook ((shell-mode term-mode) . (lambda () (display-line-numbers-mode 0)))
+  :hook ((shell-mode term-mode org-mode) . (lambda () (display-line-numbers-mode 0)))
   :demand t
   :config
   ;; global-display-line-numbers-mode t enables display-line-numbers-mode in all buffers.
