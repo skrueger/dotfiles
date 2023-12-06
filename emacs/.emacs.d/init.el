@@ -507,7 +507,9 @@
 ;; Its loading time is a drag when I haven't loaded the project yet and I only want to quickly edit or view or a single file.
 ;; Instead I manually load it by running 'eglot'.
 (use-package eglot
-  :ensure t)
+  :ensure t
+  :bind
+  ("M-RET" . eglot-code-actions))
 
 ;; treemacs provides a tree layout file explorer.
 ;; See https://github.com/Alexander-Miller/treemacs.
