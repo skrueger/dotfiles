@@ -172,7 +172,9 @@
 
   (setq org-plantuml-jar-path "~/.lib/plantuml.jar")
   ;; org-indent-mode indents text according to the outline structure.
-  :hook ((org-mode . (lambda () (org-indent-mode 1)))
+  :hook ((org-mode . (lambda ()
+                       (org-indent-mode 1)
+                       (variable-pitch-mode 1)))
          (org-agenda-mode . (lambda () (hl-line-mode 1))))
   :config
   (org-babel-do-load-languages
