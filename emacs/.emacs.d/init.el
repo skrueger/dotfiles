@@ -227,6 +227,11 @@
   (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
   (add-to-list 'org-structure-template-alist '("py" . "src python")))
 
+(use-package org-bullets
+  :ensure t
+  :after org
+  :hook (org-mode . (lambda () (org-bullets-mode 1))))
+
 ;; savehist saves the minibuffer history.
 (use-package savehist
   :config
