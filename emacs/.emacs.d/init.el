@@ -511,6 +511,12 @@
   :bind
   ("M-RET" . eglot-code-actions))
 
+(use-package flymake
+  :ensure t
+  :bind
+  ("M-n" . flymake-goto-next-error)
+  ("M-p" . flymake-goto-prev-error))
+
 ;; treemacs provides a tree layout file explorer.
 ;; See https://github.com/Alexander-Miller/treemacs.
 (use-package treemacs
