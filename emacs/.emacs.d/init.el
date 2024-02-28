@@ -158,7 +158,8 @@
     '((sequence "TODO(t!)" "DONE(d!)")
       (sequence "WAIT(w!)" "CANCELED(c!)")))
 
-  (setq org-agenda-files '("~/org/"))
+  (setq org-agenda-files '("~/org/")
+  (setq org-default-notes-file (concat org-directory "/inbox.org")))
   ;; org-log-time 'time records the time when a task moves to the DONE state.
   (setq org-log-done 'time)
   ;; org-log-into-drawer t inserts state change notes and time stamps into the LOGBOOK drawer.
