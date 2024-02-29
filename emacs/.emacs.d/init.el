@@ -198,6 +198,29 @@
   ;; It can be toggled with the default keybinding `l`.
   (setq org-agenda-start-with-log-mode t))
 
+(use-package org-capture
+  :after org
+  :init
+  (defun task-template () "* TODO %?")
+
+  ;; %<...> is the format-time-string built-in function
+  ;; %a is the locale's abbreviated name of the day of week (e.g., Mon)
+  ;; %d is the day of the month, zero-padded
+  ;; %b is the locale's abbreviated month name
+  ;; %Y is the year
+  ;; %H is the hour
+  ;; %M is the minute
+  ;; %Z is the time zone abbreviation.
+  ;;
+  ;; %? after completing the template, position cursor here.
+  (defun journal-template () "* %<%a %d %b %Y %H:%M %Z>\n %?")
+
+  ;; :clock-in starts the clock for the new capture item.
+  ;; :clock-resume Start the interrupted clock when finishing the capture.
+  (setq org-capture-templates
+        `(("t" "Task" entry (file+headline "inbox.org" "Tasks") (function task-template) :clock-in :clock-resume)
+          ("j" "Journal" entry (file+olp+datetree "journal.org") (function journal-template) :clock-in :clock-resume))))
+
 ;; org-habit tracks habits in the agenda view.
 ;; It is built in to emacs but it must be loaded.
 (use-package org-habit
