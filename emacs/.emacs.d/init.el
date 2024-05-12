@@ -130,6 +130,20 @@
   ;; global-display-line-numbers-mode t enables display-line-numbers-mode in all buffers.
   (global-display-line-numbers-mode t))
 
+;; files is builtin to emacs.
+(use-package files
+  :init
+  ;; The backup-by-copying came from https://www.emacswiki.org/emacs/BackupDirectory
+  ;; It saves ~ backup files into ~/.saves/
+  (setq
+   backup-by-copying t      ; don't clobber symlinks
+   backup-directory-alist
+    '(("." . "~/.saves/"))    ; don't litter my fs tree
+   delete-old-versions t
+   kept-new-versions 6
+   kept-old-versions 2
+   version-control t))
+
 ;; dired is a built-in major mode for directory browsing and editing.
 (use-package dired
   :commands (dired dired-jump)
