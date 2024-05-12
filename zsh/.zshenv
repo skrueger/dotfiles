@@ -1,10 +1,13 @@
 # $ZDOTDIR/.zshenv
 # Used for setting user's environment variables; it should not contain commands that produce output or assume the shell is attached to a TTY. When this file exists it will always be read.
 
-HISTFILE=~/.histfile
+COMPDUMPFILE="${XDG_CACHE_HOME:-${HOME}/.cache}/zsh/.zcompdump"
+GRML_COMP_CACHE_DIR="${XDG_CACHE_HOME:-${HOME}/.cache}/zsh"
+HISTFILE="${XDG_STATE_HOME:-${HOME}/.local/state}"/zsh/history
 HISTSIZE=1000
 SAVEHIST=1000
 TERM=xterm-256color
+INPUTRC=${XDG_CONFIG_HOME:-${HOME}/.config}/readline/inputrc
 
 # https://zsh.sourceforge.io/Guide/zshguide02.html#l24
 typeset -U path PATH

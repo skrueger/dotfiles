@@ -53,4 +53,4 @@ add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':completion:*:*:cdr:*:*' menu selection
 
 # Source my work specific zshrc settings
-xsource "$HOME/.zshrc.work"
+xsource "$ZDOTDIR/.zshrc.work"
