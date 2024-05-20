@@ -567,6 +567,10 @@
   :config
   (xterm-mouse-mode 1))
 
+(use-package undo-tree
+  :init
+  (setq undo-tree-history-directory-alist '(("." . "~/.undo-tree"))))
+
 ;; custom-file is used for storing customization information.
 ;; customize-set-variables and customize-set-faces are examples of customizations.
 ;; By default it is nil, which means it stores the values in the init file.
