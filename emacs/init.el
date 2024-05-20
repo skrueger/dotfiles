@@ -563,6 +563,10 @@
 (use-package treemacs
   :ensure t)
 
+(use-package xt-mouse
+  :config
+  (xterm-mouse-mode 1))
+
 ;; custom-file is used for storing customization information.
 ;; customize-set-variables and customize-set-faces are examples of customizations.
 ;; By default it is nil, which means it stores the values in the init file.
