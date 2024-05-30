@@ -17,3 +17,5 @@ path=(~/.local/bin $path)
 # I use --layout=reverse to keep what I type close to the command prompt.
 # I find this more pleasant.
 FZF_DEFAULT_OPTS='--layout=reverse'
+
+[[ -r "$ZDOTDIR/.zshenv.local" ]] && $ZDOTDIR/.zshenv.local

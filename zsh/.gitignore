@@ -1,5 +1,5 @@
 .chpwd-recent-dirs
-*.work
+*.local
 .zcompdump
 .zdirs
 .zsh_history
