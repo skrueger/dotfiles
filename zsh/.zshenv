@@ -18,4 +18,4 @@ path=(~/.local/bin $path)
 # I find this more pleasant.
 FZF_DEFAULT_OPTS='--layout=reverse'
 
-[[ -r "$ZDOTDIR/.zshenv.local" ]] && $ZDOTDIR/.zshenv.local
+[[ -r "$ZDOTDIR/.zshenv.local" ]] && source $ZDOTDIR/.zshenv.local
