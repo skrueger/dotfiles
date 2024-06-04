@@ -9,6 +9,7 @@
 # On Arch Linux it can be installed with the official `grml-zsh-config` package.
 # Grml and Arch Linux places the file in the global zshrc (/etc/zsh/zshrc).
 # See `man grmlzshrc` for more information or its reference card (https://grml.org/zsh/grml-zsh-refcard.pdf).
+[[ -r $ZDOTDIR/.zshrc.local.pre ]] && source $ZDOTDIR/.zshrc.local.pre
 
 # vi keybindings
 bindkey -v

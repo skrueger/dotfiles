@@ -1,5 +1,6 @@
 .chpwd-recent-dirs
-*.local
+*.local*
 .zcompdump
 .zdirs
 .zsh_history
+.zshrc.grml
