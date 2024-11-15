@@ -382,6 +382,15 @@
   :ensure t
   :bind ("M-/" . evilnc-comment-or-uncomment-lines))
 
+(use-package evil-search
+  :after evil
+  :ensure nil ;; ensure is not needed because evil-search is apart of evil
+  :config
+  ;; Use Evil's own interactive search module instead of
+  ;; Emac's isearch. Evil's mode supports hlsearch highlighting
+  ;; and remembers search history.
+  (evil-select-search-module 'evil-search-module 'evil-search))
+
 ;; Magit is a complete text-based user interface to Git.
 ;; Magit gives me git superpowers.
 ;; Magit's website is located at https://magit.vc/.
