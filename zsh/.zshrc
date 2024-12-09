@@ -39,6 +39,8 @@ xsource "$HOME/.nvm/nvm.sh"
 xsource /usr/share/fzf/{key-bindings,completion}.zsh
 # Ubuntu 22.04 places them here
 xsource /usr/share/doc/fzf/examples/{key-bindings,completion}.zsh
+# Fedora 41
+xsource /usr/share/fzf/shell/key-bindings.zsh
 
 # cdr changes the working directory to a previous working directory.
 #
