@@ -8,6 +8,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 TERM=xterm-256color
 INPUTRC=${XDG_CONFIG_HOME:-${HOME}/.config}/readline/inputrc
+EDITOR=vim
 
 # https://zsh.sourceforge.io/Guide/zshguide02.html#l24
 typeset -U path PATH
