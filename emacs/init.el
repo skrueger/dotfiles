@@ -359,6 +359,11 @@
   ;; [1]: 'org-cycle' cycles the visibility of headings.
   (setq evil-want-C-i-jump t)
 
+  ;; Recognize symbols such as underscore (_) and hyphen/dash (-) as a word character in searches with `*` and `#`.
+  ;; This matches vim behavior.
+  ;; For more info see https://evil.readthedocs.io/en/latest/faq.html#underscore-is-not-a-word-character
+  (setq evil-symbol-word-search t)
+
   ;; The :config keyword executes code after a package is loaded.
   :config
   ;; evil-mode 1 enables evil-local mode in all buffers.
