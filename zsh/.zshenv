@@ -4,6 +4,9 @@
 COMPDUMPFILE="${XDG_CACHE_HOME:-${HOME}/.cache}/zsh/.zcompdump"
 GRML_COMP_CACHE_DIR="${XDG_CACHE_HOME:-${HOME}/.cache}/zsh"
 HISTFILE="${XDG_STATE_HOME:-${HOME}/.local/state}"/zsh/history
+if ! [[ -d $(dirname "$HISTFILE") ]]; then
+  mkdir -p $(dirname "$HISTFILE")
+fi
 HISTSIZE=1000
 SAVEHIST=1000
 TERM=xterm-256color
