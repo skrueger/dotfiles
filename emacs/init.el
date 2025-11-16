@@ -188,6 +188,7 @@
   (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
 
   (setq org-plantuml-jar-path "~/.lib/plantuml.jar")
+  (setq org-agenda-files (mapcar (lambda (x) (concat org-directory x)) '("tasks.org")))
   ;; org-indent-mode indents text according to the outline structure.
   :hook ((org-mode . (lambda ()
                        (org-indent-mode 1)
@@ -234,7 +235,7 @@
   ;; :clock-in starts the clock for the new capture item.
   ;; :clock-resume Start the interrupted clock when finishing the capture.
   (setq org-capture-templates
-        `(("t" "Task" entry (file+headline "inbox.org" "Tasks") (function task-template) :clock-in :clock-resume)
+        `(("t" "Task" entry (file+headline "tasks.org" "Inbox") (function task-template) :clock-in :clock-resume)
           ("j" "Journal" entry (file+olp+datetree "journal.org") (function journal-template) :clock-in :clock-resume))))
 
 ;; org-habit tracks habits in the agenda view.
